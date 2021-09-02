@@ -22,7 +22,7 @@ Mesmer consists of two parts:
 
 Both parts need to be included in the application for Mesmer to work.
 
-### Akka extension:
+### Akka extension
 
 Add the following dependency to your `build.sbt` file:
 
@@ -34,7 +34,7 @@ Add this entry to your `application.conf`:
 
     akka.actor.typed.extensions= ["io.scalac.mesmer.extension.Mesmer"] 
 
-### JVM agent:
+### JVM agent
 
 Download the latest agent jar from https://github.com/ScalaConsultants/mesmer-akka-agent/releases and add a parameter when running your JVM:
 
@@ -42,7 +42,7 @@ Download the latest agent jar from https://github.com/ScalaConsultants/mesmer-ak
 
 where `PATH_TO_JAR` is your **absolute** path to the Mesmer agent jar.
 
-### Exporter:
+### Exporter
 
 As Mesmer uses OpenTelemetry underneath to export data to metric backend you need to set up an exporter.
 All exporters require OpenTelemetry SDK present, so make sure you have one added to your project - without this all measurement operations will be NoOp.
@@ -77,7 +77,7 @@ and it's a good practice to shut it down gracefully:
 sys.addShutdownHook(metricReader.shutdown())
 ```
 
-You can check out in details how to configure Prometheus with Akka HTTP in our example application [here](https://github.com/ScalaConsultants/mesmer-akka-agent/blob/main/example/src/main/scala/io/scalac/Boot.scala#L64-L74).
+You can check out in details how to configure Prometheus with Akka HTTP in our example application [here](https://github.com/ScalaConsultants/mesmer-akka-agent/blob/e61860e46a796e5aea98d4ea8dce59c8512f8521/example/src/main/scala/io/scalac/Boot.scala#L64-L74).
 
 ## Supported metrics
 
